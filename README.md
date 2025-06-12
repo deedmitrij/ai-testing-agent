@@ -21,13 +21,13 @@ An intelligent automation tool to generate **User Stories** and **Test Cases** f
 ---
 
 ## 📑 Table of Contents
-1. [Setup Instructions](#%EF%B8%8F-setup-instructions)
-   - [Clone the Repository](#1%EF%B8%8F-clone-the-repository)
-   - [Set Up a Virtual Environment](#2%EF%B8%8F-set-up-a-virtual-environment-optional-but-recommended)
-   - [Install Dependencies](#3%EF%B8%8F-install-dependencies)
-   - [Configure Environment Variables](#4%EF%B8%8F-configure-environment-variables)
-   - [Run the Tool](#5%EF%B8%8F-run-the-application)
-2. [License](#-license)
+1. [Setup Instructions](#setup-instructions)
+   - [Clone the Repository](#1-clone-the-repository)
+   - [Set Up a Virtual Environment](#2-set-up-a-virtual-environment)
+   - [Install Dependencies](#3-install-dependencies)
+   - [Configure Environment Variables](#4-configure-environment-variables)
+   - [Run the Tool](#5-run-the-tool)
+2. [License](#license)
 
 ---
 
