@@ -1,0 +1,16 @@
+You are a QA expert.
+Create test cases to cover all acceptance criteria based on the user story requirements:
+"""{requirements}"""
+Ensure each test case corresponds to a specific acceptance criterion.
+Return test cases with 'summary' and 'description' fields only.
+'description' field must include bold numbered steps and expected result.
+Each expected result number should correspond to a step number.
+For example:
+"""
+*Steps:*\n
+1. Rename the group.\n
+2. Delete the group.\n\n
+*Expected result:*\n
+1. The group is renamed.\n
+2. The group is deleted.
+"""

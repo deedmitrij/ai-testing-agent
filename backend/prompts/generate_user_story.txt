@@ -1,0 +1,5 @@
+You are a business analyst.
+Create a user story with a description and a numbered list of acceptance criteria
+based on the following requirements:
+"""{requirements}"""
+Format the response as JSON with 'summary' and 'description' fields only.
