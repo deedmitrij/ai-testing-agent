@@ -1,0 +1,207 @@
+/* Apply border-box globally for easier sizing calculations */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    width: 400px; /* Fixed width of the main chat window */
+    height: 600px; /* Fixed height of the main chat window */
+    background: #fcfcfc;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 10px; /* Padding inside the container */
+    border: 1px solid #a0a0a0; /* More visible border for the container */
+}
+
+.chat-title {
+    margin: 0;
+    padding: 12px;
+    font-size: 1.4em;
+    border-bottom: 1px solid #ddd;
+    background: white;
+    text-align: center;
+}
+
+.chat-box {
+    flex: 1;
+    padding: 10px; /* Padding inside the chat message area */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    /* Added more visible border to the chat area */
+    border: 2px solid #d0d0d0; /* Visible border for the chat message scroll area */
+    border-radius: 5px; /* Slight roundness for the border */
+    margin-bottom: 10px; /* Space between chat box and input area */
+    /* Ensure it takes full available width within the container's padding */
+    width: 100%;
+}
+
+.message-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* Space between messages */
+    animation: slideFadeIn 0.3s ease-out;
+}
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-label {
+    font-size: 0.8em;
+    margin-bottom: 2px;
+    color: #666;
+}
+
+/* Specific alignment for labels based on sender */
+.bot .message-label {
+    align-self: flex-start;
+}
+
+.user .message-label {
+    align-self: flex-end;
+}
+
+.bot-message-content {
+    background-color: #e8f0fe;
+    padding: 10px 14px;
+    border-radius: 14px;
+    word-wrap: break-word; /* Ensure long words break */
+    max-width: 75%; /* Limit width for bot messages */
+    align-self: flex-start; /* Align message bubble */
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+}
+
+.user-message-content {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 14px;
+    word-wrap: break-word; /* Ensure long words break */
+    max-width: 75%; /* Limit width for user messages */
+    align-self: flex-end; /* Align message bubble */
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+}
+
+.timestamp {
+    font-size: 0.7em;
+    color: #888;
+    margin-top: 4px;
+}
+
+/* Specific alignment for timestamps based on sender */
+.bot .timestamp {
+    align-self: flex-start;
+}
+
+.user .timestamp {
+    align-self: flex-end;
+}
+
+.input-area {
+    display: flex;
+    padding: 10px;
+    /* Added a more visible full border to the input area */
+    border: 2px solid #d0d0d0; /* Visible border for the input field and send button area */
+    border-radius: 5px; /* Slight roundness for the border */
+    align-items: flex-end; /* Align items to the bottom, useful for textarea expansion */
+    /* Ensure it takes full available width within the container's padding */
+    width: 100%;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc; /* Border for the input field itself */
+    border-radius: 10px;
+    /* Re-enabled manual resizing for the textarea.
+       The browser will typically provide a resize handle (often in the bottom right corner).
+       The automatic expansion logic in JS will still work up to max-height,
+       but manual resize can override max-height. */
+    resize: vertical; /* Allow vertical manual resize */
+    min-height: 40px; /* Permanent minimum height */
+    max-height: 150px; /* Maximum height for auto-expansion, before scrollbar appears */
+    overflow-y: auto; /* Enable scroll if content exceeds max-height */
+    word-wrap: break-word; /* Important for text to break words */
+    white-space: pre-wrap; /* Maintains whitespace and allows line breaks */
+    width: 80%;
+}
+
+#send-btn {
+    margin-left: 8px;
+    padding: 0 16px;
+    height: 40px; /* Match min-height of input for better alignment */
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+#send-btn:hover {
+    background-color: #0056b3;
+}
+
+.typing-indicator {
+    font-style: italic;
+    color: #555;
+    padding: 8px 12px;
+    background: #e8f0fe;
+    border-radius: 14px;
+    align-self: flex-start;
+    animation: pulse 1s infinite alternate;
+    max-width: 50%;
+    word-wrap: break-word;
+    margin-bottom: 10px; /* Space for indicator */
+}
+
+@keyframes pulse {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+.menu-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.menu-options button {
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    background-color: #f0f8ff;
+    color: #007bff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.menu-options button:hover {
+    background-color: #007bff;
+    color: white;
+}
